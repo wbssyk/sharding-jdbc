@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.shardingjdbc.dao.sharding.LogMapper">
+
+    <select id="getDb" resultType="java.util.Map">
+        select * from test_db
+    </select>
+
+    <select id="selectOne" resultType="java.util.Map">
+          select * from test_db where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.example.shardingjdbc.entity.Log">
+        insert into log  (message,createtime) values (#{message},#{createtime})
+    </insert>
+
+
+    <update id="createTmpTable" parameterType="java.lang.String">
+        CREATE TABLE ${tableName}(
+        id VARCHAR(64) not null,
+        message VARCHAR(64),
+        createtime datetime,
+        PRIMARY KEY (id)
+        )
+ </update>
+
+    <select id="findAllTableNames" resultType="String">
+       <![CDATA[ select table_name from db0  ]]>
+</select>
+</mapper>

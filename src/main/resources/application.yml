@@ -1,0 +1,20 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    db0:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db0?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      username: root
+      password: 123456
+    db1:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db1?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      username: root
+      password: 123456
+#配置mybatis
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+
+
